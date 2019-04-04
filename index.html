@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Journey Capture Service | Tester</title>
+    <link rel="stylesheet" href="./libs/idscan-jcs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw="
+        crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+</head>
+
+<body>
+    <section id="rendering">
+        Loading...
+    </section>
+    <!--the order of the sccripts is too important;-->
+    <script src="./libs/jquery-1.6.4.min.js"></script>
+    <script src="./libs/signalr.min.js"></script>
+    <script src="./libs/idscan.croppy.min.js"></script>
+    <script src="./libs/idscan-jcs.min.js"></script>
+
+    <script type="text/javascript">
+        // var jcs__id__box = '0';
+
+        var containerized = new IDScan.JourneyContainer({
+            backendUrl: 'https://idscan-test.star-bridge.lv',
+            containerId: '#rendering',
+            templatesPath: './templates',
+            token: 'CQUqoPTGm0KPhvbD20pX8A',
+            defaultInputProvider: 'FILESYSTEM',
+            auth: true
+        });
+
+    </script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Helvetica';
+            font-size: 1.250rem;
+            background: #F7F7F7;
+        }
+
+        #rendering {
+            width: 650px;
+            height: 600px;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
+        }
+
+         div.start {
+                position: absolute;
+                bottom: 100px;
+            }
+
+        @media screen and (max-width: 568px) {
+            #rendering {
+                width: calc(100% - 2rem);
+                height: calc(100% - 2rem);;
+            }
+            .journey-information {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+            #jcs__provider__container {
+                height: 280px !important;
+            }
+            div.jcs__action__container {
+                margin-top: 3px;
+            }
+           
+            .cancel {
+                margin-top: 1.25rem;
+            }
+            .id {
+                margin-top: 0.5rem;
+            }
+        }
+
+    </style>
+</body>
+
+</html>
